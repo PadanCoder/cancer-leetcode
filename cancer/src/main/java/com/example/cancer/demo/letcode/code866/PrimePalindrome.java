@@ -43,7 +43,9 @@ import java.util.Stack;
 public class PrimePalindrome {
 
     public static void main(String[] args) {
-        System.out.println(primePalindrome(13));
+        //System.out.println(primePalindrome(13));
+
+        System.out.println(isPrimePlus(121));
     }
 
     private static int primePalindrome(int N){
@@ -59,10 +61,15 @@ public class PrimePalindrome {
         return result;
     }
 
+    /**
+     * 素数判断：常规方法
+     * @param num
+     * @return
+     */
     private static boolean isPrime(int num){
         if(num<2){
             return false;
-        }else if(num==2 ||num==3){
+        } if(num==2 ||num==3){
             return true;
         }else{
             double sqrt = Math.sqrt(num);
@@ -74,6 +81,33 @@ public class PrimePalindrome {
             return true;
         }
     }
+
+    /**
+     * 素数判断变态版：6倍原理
+     * @param num
+     * @return
+     */
+    private static boolean isPrimePlus(int num){
+
+        if(num<2) {
+            return false;
+        }
+        if(num==2 ||num == 3|| num==5){
+            return true;
+        }
+        if(num%2==0 || num%3==0){
+            return false;
+        }
+
+        for (int i = 6; i <= Math.sqrt(num); i+=6) {
+            if(num%(i-1) ==0 || num %(i+1)==0){
+                return false;
+            }
+        }
+        
+        return true;
+    }
+
 
     private static boolean isPalindrome(int num){
         String str = String.valueOf(num);
@@ -100,4 +134,6 @@ public class PrimePalindrome {
         }
         return true;
     }
+
+
 }

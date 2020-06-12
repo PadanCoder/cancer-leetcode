@@ -1,0 +1,14 @@
+xxl:
+  job:
+    admin:
+      addresses: http://127.0.0.1:8080/xxl-job-admin
+    executor:
+        appname: demoJobHandler
+        address:
+        ip:
+        port: 9999
+        logpath: E:\xxl-job\log
+        logretentiondays: -1
+    accessToken:
+server:
+  port: 8085
