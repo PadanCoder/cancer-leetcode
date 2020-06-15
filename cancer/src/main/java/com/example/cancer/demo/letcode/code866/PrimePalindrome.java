@@ -44,15 +44,16 @@ public class PrimePalindrome {
 
     public static void main(String[] args) {
         //System.out.println(primePalindrome(13));
-
-        System.out.println(isPrimePlus(121));
+        long start = System.currentTimeMillis();
+        System.out.println(primePalindrome(9989900));
+        System.out.println(System.currentTimeMillis() - start);
     }
 
     private static int primePalindrome(int N){
-        int result=N;
+        int result = N;
         boolean flag = true;
         while(flag){
-            if(isPrime(result) && isPalindrome2(result)){
+            if(isPrimePlus(result) && isPalindromePlus(result)){
                 flag = false;
                 break;
             }
@@ -88,7 +89,6 @@ public class PrimePalindrome {
      * @return
      */
     private static boolean isPrimePlus(int num){
-
         if(num<2) {
             return false;
         }
@@ -99,12 +99,11 @@ public class PrimePalindrome {
             return false;
         }
 
-        for (int i = 6; i <= Math.sqrt(num); i+=6) {
-            if(num%(i-1) ==0 || num %(i+1)==0){
+        for (int i = 5; i <= Math.sqrt(num); i+=6) {
+            if(num%i == 0 || num %(i+2)==0){
                 return false;
             }
         }
-        
         return true;
     }
 
@@ -125,7 +124,7 @@ public class PrimePalindrome {
         return false;
     }
 
-    private static boolean isPalindrome2(int num){
+    private static boolean isPalindromePlus(int num){
         String str = String.valueOf(num);
         for (int i = 0; i < str.length()/2; i++) {
             if(!String.valueOf(str.charAt(i)).equals(String.valueOf(str.charAt(str.length()-i-1)))){
