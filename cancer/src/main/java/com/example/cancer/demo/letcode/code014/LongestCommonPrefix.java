@@ -1,5 +1,7 @@
 package com.example.cancer.demo.letcode.code014;
 
+import org.springframework.util.StringUtils;
+
 /**
  * 编写一个函数来查找字符串数组中的最长公共前缀。
  *
@@ -28,13 +30,28 @@ public class LongestCommonPrefix {
 
     public static void main(String[] args) {
 
+        String[] strs = {"flower","flow","flight"};
+        String s = longestCommonPrefix(strs);
+        System.out.println(s);
     }
 
     public static String longestCommonPrefix(String[] strs) {
-        String result = "";
-
-        return result;
+        int length = strs.length;
+        if (length==0){
+            return "";
+        }
+        String tempStr = strs[0];
+        for (int i = 1; i < strs.length; i++) {
+            if(tempStr.length()==0){
+                break;
+            }
+            while(strs[i].indexOf(tempStr)!=0){
+                tempStr = tempStr.substring(0,tempStr.length()-1);
+            }
+        }
+        return tempStr;
     }
+
 }
 
 
