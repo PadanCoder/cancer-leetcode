@@ -1,5 +1,9 @@
 package com.example.cancer.demo.letcode.code1028;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * 从先序遍历还原二叉树
  *
@@ -35,7 +39,19 @@ public class RecoverFromPreorder {
     }
 
     public TreeNode recoverFromPreorder(String S) {
+        if(S==null){
+            return null;
+        }
+        TreeNode node = new TreeNode(1);
+        int count;
+        for (int i = 0; i < S.length(); i++) {
+            if(Character.isDigit(S.charAt(i))){
+                node.val = S.charAt(i);
+            }else{
 
+            }
+        }
         return null;
     }
+
 }
